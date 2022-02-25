@@ -29,9 +29,7 @@ for quantity in range(demand + 1):
     # print(j, quantity, profit)
     if profit >= maxprofit:
         maxprofit = profit
-    else:
-        break
-
+    
 maxprofit = int(maxprofit)
 quantity = int(quantity - 1)  
 print(quantity, maxprofit)  
