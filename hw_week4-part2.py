@@ -13,7 +13,11 @@ for i in range(0, demand + 1):
 
 # print(probs)
 
-maxprofit = 0
+""" 
+有可能最終的 maxprofit 就剛好是 0，如果這裡初始值為 0，
+那這行程式碼 max_quantity = quantity 就不會被執行到了
+"""
+maxprofit = -1
 max_quantity = -1
 for quantity in range(demand + 1):
 # quantity 訂貨量落在 0 到 demand 之間（包含 0 和 demand）
