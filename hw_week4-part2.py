@@ -14,7 +14,7 @@ for i in range(0, demand + 1):
 # print(probs)
 
 maxprofit = 0
-
+max_quantity = -1
 for quantity in range(demand + 1):
 # quantity 訂貨量落在 0 到 demand 之間（包含 0 和 demand）
     pn = 1
@@ -35,10 +35,11 @@ for quantity in range(demand + 1):
     """
     if profit > maxprofit:
         maxprofit = profit
+        max_quantity = quantity
     
 maxprofit = int(maxprofit)
-quantity = int(quantity - 1)  
-print(quantity, maxprofit)  
+# quantity = int(quantity - 1)  // redundant 
+print(max_quantity, maxprofit)  
 
 
 
