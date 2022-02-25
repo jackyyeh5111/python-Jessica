@@ -1,40 +1,40 @@
 # # Part 2
-# c：進貨成本、r：零售價格、n：需求量、probability：需求量機率、q：訂貨量 (介於 0 到 n 之間)
+# c：進貨成本、r：零售價格、n：需求量、probability：需求量機率、quantity：訂貨量 (介於 0 到 n 之間)
 
-c = int(input("cost= "))
-r = int(input("price= "))
-n = int(input("demand= "))
+cost = int(input("cost= "))
+price = int(input("price= "))
+demand = int(input("demand= "))
 # create an empty list
-lst = []
+probs = []
 # iterate till the range
-for i in range(0, n + 1):
+for i in range(0, demand + 1):
     probability = float(input())
-    lst.append(probability)
-    pi = lst
-# print(pi)
+    probs.append(probability)
+
+# print(probs)
 
 maxprofit = 0
 
-for q in range(n + 1):
-# q 訂貨量落在 0 到 n 之間（包含 0 和 n）
+for quantity in range(demand + 1):
+# quantity 訂貨量落在 0 到 demand 之間（包含 0 和 demand）
     pn = 1
     profit = 0
-    for j in range(q + 1):
-    # n 需求量一定在 0 到 q 之間（包含 0 和 q）
-        if j == q:
-            profit += pn * (q * r - q * c)
+    for j in range(quantity + 1):
+    # demand 需求量一定在 0 到 quantity 之間（包含 0 和 quantity）
+        if j == quantity:
+            profit += pn * (quantity * price - quantity * cost)
         else:
-            profit += pi[j] * (j * r - q * c)
-            pn -= pi[j]
-    # print(j, q, profit)
+            profit += probs[j] * (j * price - quantity * cost)
+            pn -= probs[j]
+    # print(j, quantity, profit)
     if profit >= maxprofit:
         maxprofit = profit
     else:
         break
 
 maxprofit = int(maxprofit)
-q = int(q - 1)  
-print(q, maxprofit)  
+quantity = int(quantity - 1)  
+print(quantity, maxprofit)  
 
 
 
