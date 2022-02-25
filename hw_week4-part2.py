@@ -27,7 +27,13 @@ for quantity in range(demand + 1):
             profit += probs[j] * (j * price - quantity * cost)
             pn -= probs[j]
     # print(j, quantity, profit)
-    if profit >= maxprofit:
+    
+    """ 
+    題目說道：
+    如果有數個訂貨量會導致一模一樣的預期利潤（是預期利潤一樣，不是無條件捨去之後一樣！），
+    請用比較小的那一個當最佳訂貨量。 所以這裡要用 > 而不是 >=
+    """
+    if profit > maxprofit:
         maxprofit = profit
     
 maxprofit = int(maxprofit)
