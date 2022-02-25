@@ -1,28 +1,28 @@
 # # # Part 1
 # # c：進貨成本、r：零售價格、n：需求量、probability：需求量機率、q：訂貨量
 
-c = int(input("cost= "))
-r = int(input("price= "))
-n = int(input("demand= "))
-q = int(input("order= "))
+cost = int(input("cost= "))
+price = int(input("price= "))
+demand = int(input("demand= "))
+order_quantity = int(input("order quantity= "))
 # create an empty list
-lst = []
+probs = []
 # iterate till the range
-for i in range(0, n + 1):
+for i in range(0, demand + 1):
     probability = float(input())
-    lst.append(probability)
-    pi = lst
-print(pi)
+    probs.append(probability)
+    
+print(probs)
 
 profit = 0
 pn = 1
 
-for j in range(0, q):
-    profit += pi[j] * (j * r - q * c)
+for j in range(0, order_quantity):
+    profit += probs[j] * (j * price - order_quantity * cost)
     # print(j, profit)
-    pn -= pi[j]
+    pn -= probs[j]
     # print(pn)
 
-profit += pn * (q * r - q * c)
+profit += pn * (order_quantity * price - order_quantity * cost)
 profit = int(profit)  
 print("expected profit=", profit)  
